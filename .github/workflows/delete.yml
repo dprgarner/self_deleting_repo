@@ -1,13 +1,13 @@
 on:
   - push
 
-permissions: write-all
-
-env:
-  GH_TOKEN: ${{ github.token }}
-
 jobs:
   delete:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
-      - run: gh repo delete ${{ github.repository }} --yes
+      - run: |
+          echo $GH_TOKEN
+          gh repo delete ${{ github.repository }} --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
