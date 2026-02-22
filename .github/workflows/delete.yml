@@ -3,6 +3,9 @@ on:
 
 permissions: write-all
 
+env:
+  GH_TOKEN: ${{ github.token }}
+
 jobs:
   delete:
     runs-on: ubuntu-latest
