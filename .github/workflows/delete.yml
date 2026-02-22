@@ -10,6 +10,4 @@ jobs:
   delete:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          export REPO_NAME=$(gh repo view --json nameWithOwner | jq -r '.nameWithOwner')
-          gh repo delete $REPO_NAME --yes
+      - run: gh repo delete ${{ repo.name }} --yes
