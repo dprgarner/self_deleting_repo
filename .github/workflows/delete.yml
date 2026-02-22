@@ -1,0 +1,10 @@
+on:
+  - push
+
+permissions: write-all
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh repo delete --yes
